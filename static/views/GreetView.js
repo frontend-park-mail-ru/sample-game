@@ -14,9 +14,11 @@ window.GreetView = (function (window) {
 			this.chooseSingle.addEventListener('click', this.onChoose.bind(this, 'single'));
 			this.chooseMulti.addEventListener('click', this.onChoose.bind(this, 'multi'));
 			this.chooseSmart.addEventListener('click', this.onChoose.bind(this, 'smart'));
+			this.greetForm.addEventListener('submit', this.onChoose.bind(this, 'single'));
 		}
 
 		onChoose(mode, event) {
+			event.preventDefault();
 			const username = (this.usernameInput.value || '').trim();
 			if (!username) {
 				alert('Пустое имя!');
