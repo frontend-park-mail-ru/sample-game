@@ -12,7 +12,7 @@ window.MagicTransport = (function (window) {
 			this.mediator = new Mediator();
 
 
-			const address = location.protocol === 'https'
+			const address = ['https', 'https:'].includes(location.protocol)
 				? `wss://${location.host}/ws`
 				: `ws://${location.host}/ws`;
 
