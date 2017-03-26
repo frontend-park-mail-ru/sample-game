@@ -53,15 +53,24 @@ class Game {
 		if (this.inplay) {
 			this.reset();
 		}
+		if (this[id]) {
+			this[id].close();
+		}
 		this[id] = null;
 	}
 
 	reset() {
 		debug('Сбрасываем инстанс игры');
 		['player1', 'player2'].forEach(id => this.send(id, 'SIGNAL_FINISH_GAME', {message: 'Игра окончена. Ваш противник покинул игру'}));
+		if (this.player1) {
+			this.player1.close();
+		}
+		if (this.player2) {
+			this.player2.close();
+		}
 		this.player1 = null;
 		this.player2 = null;
-
+		this.inplay = false;
 		this.gameState = null;
 		if (this.interval) {
 			clearInterval(this.interval)
@@ -267,6 +276,14 @@ class Game {
 	stopFinishGame(idwin, idfall) {
 		this.send(idwin, 'SIGNAL_FINISH_GAME', {message: `Игра окончена. Вы победили (${this.gameState[idwin].name}(${this.gameState[idwin].hp})/${this.gameState[idfall].name}(${this.gameState[idfall].hp}))`});
 		this.send(idfall, 'SIGNAL_FINISH_GAME', {message: `Игра окончена. Вы проиграли (${this.gameState[idwin].name}(${this.gameState[idwin].hp})/${this.gameState[idfall].name}(${this.gameState[idfall].hp}))`});
+
+		if (this.player1) {
+			this.player1.close();
+		}
+		if (this.player2) {
+			this.player2.close();
+		}
+
 		this.player1 = null;
 		this.player2 = null;
 		this.reset();
