@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Game</title>
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/milligram.css">
+	<link rel="stylesheet" href="/styles.css">
+	<link rel="stylesheet" href="/preloader.css">
+	<link rel="stylesheet" href="/fireworks.css">
+</head>
+<body>
+
+<div hidden id="greet" class="view-element greet-view">
+	<div class="container">
+		<form class="greet-form">
+			<label for="username">Представьтесь</label>
+			<input type="text" class="greet-form__username-input" id="username" name="username"
+				   placeholder="Введите ваше имя"/>
+			<div class="greet-form__choose-buttons">
+				<input type="button" class="greet-form__choose-single-button" id="choose-single"
+					   value="Играть в одиночку">
+				<input type="button" class="greet-form__choose-multi-button" id="choose-multi" value="Играть с другом">
+				<input type="button" class="greet-form__choose-smart-button" id="choose-smart"
+					   value="Играть с искусственным интеллектом">
+			</div>
+		</form>
+	</div>
+</div>
+
+<div hidden id="wait" class="view-element wait-view">
+	<div class="container">
+		<div style="transform:scale(0.75);">
+			<div class="cssload-thecube">
+				<div class="cssload-cube cssload-c1"></div>
+				<div class="cssload-cube cssload-c2"></div>
+				<div class="cssload-cube cssload-c4"></div>
+				<div class="cssload-cube cssload-c3"></div>
+			</div>
+		</div>
+		<h1 class="wait-view__header">Мы ищем вам компаньона</h1>
+	</div>
+</div>
+
+<div hidden id="game" class="view-element game-view">
+	<canvas class="game-view__canvas-element"></canvas>
+</div>
+
+<div hidden id="finish" class="view-element finish-view">
+	<div class="pyro">
+		<div class="before"></div>
+		<div class="after"></div>
+	</div>
+	<div class="finish-view__results">
+		<h1 class="finish-view__header">Игра окончена</h1>
+		<h2 class="finish-view__result"></h2>
+	</div>
+</div>
+
+
+<script src="/events.js"></script>
+<script src="/lib/eventemitter2.js"></script>
+
+<script src="/modules/ControllersManager.js"></script>
+<script src="/modules/Mediator.js"></script>
+
+<script src="/transports/MagicTransport.js"></script>
+
+<script src="/game-modules/GameScene.js"></script>
+<script src="/game-modules/GameStrategy.js"></script>
+<script src="/game-modules/game-strategies/SinglePlayerStrategy.js"></script>
+<script src="/game-modules/game-strategies/MultiPlayerStrategy.js"></script>
+<script src="/game-modules/game-strategies/SinglePlayerSmartStrategy.js"></script>
+<script src="/game-modules/GameManager.js"></script>
+<script src="/game-modules/Game.js"></script>
+
+<script src="/views/View.js"></script>
+<script src="/views/GreetView.js"></script>
+<script src="/views/WaitView.js"></script>
+<script src="/views/GameView.js"></script>
+<script src="/views/FinishView.js"></script>
+
+<script src="/Application.js"></script>
+<script src="/main.js"></script>
+</body>
+</html>

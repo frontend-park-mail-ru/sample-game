@@ -1,0 +1,68 @@
+.view-element {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	background-color: whitesmoke;
+}
+
+.greet-form {
+	margin-top: 14%;
+}
+
+.greet-form__username-input {
+	font-size: 22px;
+}
+
+.greet-form__choose-buttons {
+
+}
+
+.greet-form__choose-single-button {
+
+}
+
+.greet-form__choose-multi-button {
+
+}
+
+.greet-form__choose-smart-button {
+
+}
+
+.wait-view {
+
+}
+
+.wait-view__header {
+	margin-top: 35px;
+	text-align: center;
+}
+
+.finish-view {
+	color: white;
+}
+
+.finish-view__results {
+	z-index: 10;
+	margin: 25vh auto;
+	text-align: center;
+}
+
+.finish-view__header {
+	text-align: center;
+	font-weight: 700;
+}
+
+.finish-view__result {
+	text-align: center;
+	font-weight: 500;
+}
+
+.game-view {
+
+}
+
+.game-view__canvas-element {
+	display: block;
+	margin: 0 auto;
+}
