@@ -12,7 +12,11 @@ window.MagicTransport = (function (window) {
 			this.mediator = new Mediator();
 
 
-			const address = `ws://${location.host}/ws`;
+			const address = location.protocol === 'https'
+				? `wss://${location.host}/ws`
+				: `ws://${location.host}/ws`;
+
+
 			this.ws = new WebSocket(address);
 			this.ws.onopen = function (event) {
 				console.log(`WebSocket on address ${address} opened`);
