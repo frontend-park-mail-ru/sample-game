@@ -11,6 +11,7 @@ ws(app);
 
 debug(`Сервим статику`);
 app.use('/', express.static('./static'));
+app.use('/finish', express.static('./static'));
 app.use('/lib', express.static('./node_modules/eventemitter2/lib'));
 
 let game = new Game();

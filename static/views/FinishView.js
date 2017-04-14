@@ -11,6 +11,7 @@ window.FinishView = (function (window) {
 
 		show(results) {
 			console.log(`FinishView.fn.show`, results);
+			window.history.pushState({}, 'Finish game', '/finish');
 
 			super.show();
 
